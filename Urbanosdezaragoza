@@ -7,8 +7,8 @@
 #Variables: 
 #$1 es el numero del poste del autobus.
 #$poste elimina todo el texto dejando solo el numero del poste de $1
-#
-#el echo nos muestra el numero de poste, el nombre de la calle y los minutos que tardara en llegar el autobus.
+
+#el echo nos muestra el numero de poste, el nombre de la calle y los minutos que tardara en llegar el autobus y al final de todo la fecha.
 
 
 
