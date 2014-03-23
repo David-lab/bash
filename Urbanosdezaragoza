@@ -1,0 +1,20 @@
+#Urbanosdezaragoza.es
+#Zaragoza
+#Script para consultar el tiempo de paso de los autobuces
+#DAVID TRUJILLO
+#Escrito para WWW.DAVIDLAB.ES
+
+#Variables: 
+#$1 es el numero del poste del autobus.
+#$poste elimina todo el texto dejando solo el numero del poste de $1
+#
+#el echo nos muestra el numero de poste, el nombre de la calle y los minutos que tardara en llegar el autobus.
+
+
+
+
+#!/bin/bash
+
+posteno="$1"
+poste=$(echo $posteno | sed "s/ //g" | tr -c "[:digit:]" "*" |tr -d '*')
+echo "`wget -qO- "http://www.urbanosdezaragoza.es/frm_esquemaparadatime.php?poste="$poste | tail -n+11 | head -n1 | sed -r -e  's:<td[^>]+>::' -e 's:&nbsp;::g' -e 's:</td>\s+:;:' -e 's:\t::g' | tr -d '\n\r' | tr -s ' ' | tr '<>' '\n' | egrep -v '^(h4|/|table|tr|td|b|LINEA|DESTINO|MIN|Esta*|POSTE*)' | tr -d '\r' | tr '\n' ' ' | tr '.' '\n' `"
