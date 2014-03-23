@@ -16,3 +16,12 @@
 posteno="$1"
 poste=$(echo $posteno | sed "s/ //g" | tr -c "[:digit:]" "*" |tr -d '*')
 echo "`wget -qO- "http://www.urbanosdezaragoza.es/frm_esquemaparadatime.php?poste="$poste | tail -n+11 | head -n1 | sed -r -e  's:<td[^>]+>::' -e 's:&nbsp;::g' -e 's:</td>\s+:;:' -e 's:\t::g' | tr -d '\n\r' | tr -s ' ' | tr '<>' '\n' | egrep -v '^(h4|/|table|tr|td|b|LINEA|DESTINO|MIN|Esta*|POSTE*)' | tr -d '\r' | tr '\n' ' ' | tr '.' '\n' `"
+
+
+
+
+
+
+
+
+
