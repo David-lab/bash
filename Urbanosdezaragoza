@@ -11,8 +11,6 @@
 #el echo nos muestra el numero de poste, el nombre de la calle y los minutos que tardara en llegar el autobus y al final de todo la fecha.
 
 
-
-
 #!/bin/bash
 
 posteno="$1"
