@@ -1,0 +1,57 @@
+#!/bin/bash
+#David Trujillo - DAVIDLAB
+#Enviamos Tivo <<accion>> por eso quitamos Tivo y los espacios dejando unicamente la accion
+#La variable #1 contiene la accion (mirar abajo).
+#$ip es la ip de tivo (ethernet)
+#$port es el puerto que es 31339 de tivo
+#davidlab.es
+
+
+id="$1"
+idos=$(echo $id | sed "s/Tivo//g" | sed "s/tivo//g" | sed "s/ //g");
+echo $idos;
+
+telnet $ip $port <<END 
+IRCODE $idos
+exit 
+END
+
+echo "
+Acciones:
+UP
+DOWN
+LEFT
+RIGHT
+SELECT
+TIVO
+LIVETV
+THUMBSUP
+THUMBSDOWN
+CHANNELUP
+CHANNELDOWN
+RECORD
+DISPLAY
+DIRECTV
+NUM0
+NUM1
+NUM2
+NUM3
+NUM4
+NUM5
+NUM6
+NUM7
+NUM8
+NUM9
+ENTER
+CLEAR
+PLAY
+PAUSE
+SLOW
+FORWARD
+REVERSE
+STANDBY
+NOWSHOWING
+REPLAY
+ADVANCE
+DELIMITER
+GUIDE"
