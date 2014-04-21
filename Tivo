@@ -11,10 +11,10 @@ id="$1"
 idos=$(echo $id | sed "s/Tivo//g" | sed "s/tivo//g" | sed "s/ //g");
 echo $idos;
 
-telnet $ip $port <<END 
+telnet $ip $port <<STOP 
 IRCODE $idos
 exit 
-END
+STOP
 
 echo "
 Acciones:
